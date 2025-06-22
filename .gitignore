@@ -8,16 +8,16 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Flask specific
-instance/
-.flaskenv
-
-# Database file (VERY IMPORTANT for SQLite)
+# Local database files (these should NOT be committed)
 *.db
 *.sqlite
 *.sqlite3
+instance/*.db
+instance/*.sqlite
+instance/*.sqlite3
+synapsecode.db # If your db file is directly in the root or a known place
 
-# Environment variables (if you have a .env file)
+# Environment variables file (contains sensitive data, MUST be ignored)
 .env
 
 # Editor/IDE specific files

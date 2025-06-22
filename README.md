@@ -23,7 +23,7 @@ My main goal with SynapseCode was to make the search experience as "organic" as 
 My project is structured following common Flask application best practices, promoting modularity and maintainability.
 
 * `app/`: This is the main application package.
-    * `app/__init__.py`: Initializes the Flask app, sets up extensions (SQLAlchemy, Flask-Login), and registers blueprints for different feature areas.
+    * `app/__init__.py`: Initializes the Flask app, sets up extensions (SQLAlchemy, Flask-Login), and registers blueprints for different feature areas. This file also effectively serves as the application's entry point for the `flask run` command.
     * `app/auth/`: Blueprint for user authentication.
         * `app/auth/routes.py`: Handles user registration, login, and logout.
         * `app/auth/forms.py`: Defines Flask-WTF forms for authentication.
@@ -42,10 +42,10 @@ My project is structured following common Flask application best practices, prom
         * `app/templates/auth/register.html`: The registration page HTML.
         * `app/templates/snippets/my_snippets.html`: Displays the user's snippet collection, search bar, and the snippet detail modal.
         * `app/templates/snippets/add_snippet.html`: The form used for both adding new and editing existing snippets.
-* `config.py`: Stores application-wide configuration settings (database URI, secret key, pagination).
-* `run.py`: The entry point for starting the Flask development server.
+* `instance/`: This directory holds instance-specific files that should not be under version control.
+    * `instance/config.py`: This file stores application configuration settings, including sensitive data like the `SECRET_KEY` and the local database URI. It's deliberately excluded from Git tracking (`.gitignore`) to prevent sensitive information from being exposed in the repository and to allow for different configurations in development vs. production environments.
 * `requirements.txt`: Lists all Python dependencies, crucial for environment setup.
-* `.gitignore`: Specifies files/directories Git should ignore (e.g., virtual environment, local database).
+* `.gitignore`: Specifies files/directories Git should ignore (e.g., virtual environment, local database, instance folder content).
 
 ### Design Choices & Rationale
 
@@ -57,6 +57,6 @@ When building SynapseCode, I made several deliberate design choices:
 * **Client-Side Features (Prism.js & AJAX):**
     * **Prism.js** for syntax highlighting was a clear choice to improve code readability directly in the browser. I leveraged its built-in "Copy to Clipboard" functionality, which simplified development compared to rolling my own solution, and integrated its styling into the dark theme.
     * **AJAX (Asynchronous JavaScript and XML)** requests were crucial for a smoother user experience. For actions like deleting a snippet or opening the detailed view modal, AJAX allows the UI to update immediately without a full page reload. This makes the application feel much faster and more interactive. For delete operations, it also allowed me to correctly use HTTP `POST` requests for security.
-* **Organic Search Strategy:** The decision to implement a single, multi-field search bar with keyword `AND` logic was central to the "organic search" goal. I wanted users to be able to type naturally (e.g., "python list comprehension") and find relevant snippets without needing to learn complex query syntax. This flexible approach is key to the app's usability.
+* **Organic Search Strategy:** The search functionality was designed to be highly organic, utilizing a single search input that queries multiple relevant fields (`title`, `description`, `code_content`, `notes`, `tags`). The backend logic processes keywords with `AND` logic and `ILIKE` for case-insensitivity, allowing users to type natural language queries rather than rigid syntax. This decision aims to make finding snippets as intuitive and efficient as possible, which is central to the app's usability.
 
 This `README.md` provides a comprehensive overview of SynapseCode's purpose, features, architecture, and the thought process behind its design choices, adhering to the CS50 project guidelines.
