@@ -2,6 +2,8 @@
 
 #### Video Demo:  `<URL HERE - PLEASE INSERT YOUR VIDEO DEMO URL>`
 
+#### Live Demo:  `https://synapsecode-flask-app.onrender.com`
+
 #### Description:
 
 SynapseCode is a personal web application designed to solve a common developer problem: easily organizing, finding, and managing code snippets. As I built more projects, I found valuable code snippets getting lost in notes or scattered across different files. SynapseCode aims to be that single, intuitive place where I (or any developer) can save, search, and retrieve code knowledge efficiently.
