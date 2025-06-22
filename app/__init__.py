@@ -28,7 +28,7 @@ def create_app():
     app = Flask(__name__, instance_relative_config=True)
 
     # SECRET_KEY and DATABASE_URL
-    app.config.from_pyfile('config.py')
+    app.config.from_pyfile('config.py', silent=True)
 
     # initialize extentions with Flask app
     db.init_app(app)
