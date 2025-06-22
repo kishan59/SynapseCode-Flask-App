@@ -1,0 +1,30 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Flask specific
+instance/
+.flaskenv
+
+# Database file (VERY IMPORTANT for SQLite)
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment variables (if you have a .env file)
+.env
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log

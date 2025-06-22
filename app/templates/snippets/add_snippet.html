@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ title if title else "Add New Snippet" }}{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card bg-synapse-dark text-white shadow-lg border border-synapse-accent-green">
+                <div class="card-body">
+                    <h2 class="card-title text-center text-synapse-accent-green mb-4">{{ "Edit Snippet" if edit else "Add a New Code Snippet" }}</h2>
+
+                    <form method="POST">
+                        {{ form.csrf_token }}
+
+                        <div class="mb-3">
+                            {{ form.title.label(class="form-label") }}
+                            {{ form.title(class="form-control", placeholder="e.g., Python List Comprehension, JS Async/Await") }}
+                            {% if form.title.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.title.errors %}
+                                        {{ error }}<br>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.code_content.label(class="form-label") }}
+                            {{ form.code_content(class="form-control", rows=10, placeholder="Paste your code here...") }}
+                            {% if form.code_content.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.code_content.errors %}
+                                        {{ error }}<br>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.language.label(class="form-label") }}
+                            {{ form.language(class="form-control", placeholder="e.g., Python, JavaScript, CSS") }}
+                            {% if form.language.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.language.errors %}
+                                        {{ error }}<br>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.description.label(class="form-label") }}
+                            {{ form.description(class="form-control", rows=5, placeholder="Explain what this code does, its purpose, or any unique aspects.") }}
+                            {% if form.description.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.description.errors %}
+                                        {{ error }}<br>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.notes.label(class="form-label") }}
+                            {{ form.notes(class="form-control", rows=3, placeholder="Optional: Any personal notes or things to remember about this snippet.") }}
+                            {% if form.notes.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.notes.errors %}
+                                        {{ error }}<br>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.source_url.label(class="form-label") }}
+                            {{ form.source_url(class="form-control", placeholder="Optional: Where did you find this snippet? (e.g., Stack Overflow URL)") }}
+                            {% if form.source_url.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.source_url.errors %}
+                                        {{ error }}<br>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.tags.label(class="form-label") }}
+                            {{ form.tags(class="form-control", placeholder="Optional: Add comma-separated tags (e.g., 'python, list, generator')") }}
+                            {% if form.tags.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.tags.errors %}
+                                        {{ error }}<br>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            {{ form.submit(class="btn btn-primary btn-lg mt-3") }}
+                            <a href="{{ url_for('snippets.my_snippets') }}" class="btn btn-secondary btn-lg mt-2">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

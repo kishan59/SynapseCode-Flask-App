@@ -1,0 +1,534 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    /* Custom color palette */
+    --primary-blue: #007bff;
+    --secondary-gray: #6c757d;
+    --synapse-dark-blue: #2c3e50;
+    --synapse-light-blue: #34495e;
+    --synapse-accent-green: #2ecc71;
+    --text-light: #ecf0f1;
+
+    --synapse-primary-btn: #3498db;
+    --synapse-light-bg: #ecf0f1;
+    --synapse-text-dark: #333; 
+    --synapse-border-green: #2ecc71;
+    --synapse-card-dark-bg: #283747;
+    --synapse-code-bg: #282c34;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--synapse-dark-blue);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Make main content area adapt to available height */
+main {
+    flex-grow: 1;
+    background-color: transparent;
+    border-radius: 12px;
+    /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); */
+    padding: 40px !important;
+}
+
+
+/* General Text Colors */
+.text-synapse-dark-blue { color: var(--synapse-dark-blue) !important; }
+.text-synapse-primary-btn { color: var(--synapse-primary-btn) !important; }
+.text-synapse-accent-green { color: var(--synapse-accent-green) !important; }
+.text-synapse-text-dark { color: var(--synapse-text-dark) !important; }
+.text-light { color: var(--text-light) !important; }
+
+/* General Background Colors */
+.bg-synapse-dark-blue { background-color: var(--synapse-dark-blue) !important; }
+.bg-synapse-light-blue { background-color: var(--synapse-light-blue) !important; }
+.bg-synapse-accent-green { background-color: var(--synapse-accent-green) !important; }
+.bg-synapse-light-bg { background-color: var(--synapse-light-bg) !important; }
+.bg-synapse-dark { background-color: var(--synapse-card-dark-bg) !important; }
+
+/* General Border Colors */
+.border-synapse-accent-green { border-color: var(--synapse-accent-green) !important; }
+
+
+/* Header/Navbar Styling */
+.navbar {
+    background-color: var(--synapse-dark-blue) !important;
+    border-bottom: 3px solid var(--synapse-accent-green);
+}
+
+.navbar-brand {
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    color: var(--text-light) !important;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-light) !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--synapse-accent-green) !important;
+}
+
+/* Homepage Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--synapse-dark-blue) 0%, var(--synapse-light-blue) 100%);
+    color: var(--text-light);
+    padding: 80px 0;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); 
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background pattern/overlay for hero */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239C92AC" fill-opacity="0.1" fill-rule="evenodd"%3E%3Cpath d="M0 0h3v3H0V0zm3 3h3v3H3V3z"/%3E%3C/g%3E%3C/svg%3E'); /* Subtle dot pattern */
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.hero-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+.hero-section h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--synapse-accent-green);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p.lead {
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    color: var(--text-light);
+}
+
+.hero-section .btn {
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-section .btn-primary {
+    background-color: var(--synapse-accent-green);
+    border-color: var(--synapse-accent-green);
+    color: var(--synapse-dark-blue);
+}
+
+.hero-section .btn-primary:hover {
+    background-color: #27ae60;
+    border-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section .btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+}
+
+.hero-section .btn-secondary:hover {
+    background-color: var(--text-light);
+    color: var(--synapse-dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Flash Messages */
+.alert {
+    border-radius: 8px;
+    font-weight: 500;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert-success { 
+    background-color: var(--synapse-accent-green); 
+    color: var(--synapse-dark-blue); 
+    border-color: var(--synapse-border-green); 
+}
+.alert-danger { 
+    background-color: #e74c3c;
+    color: var(--text-light); 
+    border-color: #c0392b; 
+}
+.alert-info { 
+    background-color: var(--synapse-primary-btn); 
+    color: var(--text-light); 
+    border-color: #2980b9; 
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--synapse-dark-blue) !important;
+    color: var(--text-light) !important;
+    padding: 20px 0 !important;
+    margin-top: 50px !important;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* Form Specific Styling (for Register/Login) */
+form {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: var(--synapse-card-dark-bg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+form .form-label {
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+form .form-control {
+    border-radius: 6px;
+    border: 1px solid var(--synapse-accent-green);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    background-color: var(--synapse-dark-blue);
+    color: var(--text-light);
+}
+
+form .form-control::placeholder {
+    color: rgba(236, 240, 241, 0.6);
+}
+
+form .form-control:focus {
+    border-color: var(--synapse-accent-green);
+    box-shadow: 0 0 0 0.25rem rgba(46, 204, 113, 0.25);
+    background-color: var(--synapse-dark-blue);
+    color: var(--text-light);
+}
+
+form .btn-primary {
+    background-color: var(--synapse-accent-green);
+    border-color: var(--synapse-accent-green);
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+form .btn-primary:hover {
+    background-color: #27ae60;
+    border-color: #27ae60;
+}
+
+/* For errors */
+.invalid-feedback {
+    display: block;
+    color: #e6717a;
+    font-size: 0.875em;
+    margin-top: 0.25rem;
+}
+
+
+.card {
+    border: 2px solid var(--synapse-accent-green);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: var(--synapse-card-dark-bg);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4) !important;
+}
+
+.card-body {
+    background-color: var(--synapse-card-dark-bg);
+    color: var(--text-light);
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--synapse-accent-green) !important;
+}
+
+.card-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-light) !important;
+    font-weight: 400;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    color: var(--text-light) !important;
+}
+
+.card-footer {
+    background-color: var(--synapse-dark-blue) !important;
+    color: var(--text-light) !important;
+    font-size: 0.8em;
+    padding: 0.75rem 1.5rem;
+}
+
+/* Styling for the small code preview inside the cards */
+.code-preview {
+    background-color: var(--synapse-code-bg);
+    color: #abb2bf;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8em;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    max-height: 200px;
+    overflow: auto;
+}
+
+/* Adjust button colors for snippets page */
+.btn-primary {
+    background-color: var(--synapse-accent-green) !important;
+    border-color: var(--synapse-accent-green) !important;
+    color: var(--synapse-dark-blue) !important;
+}
+
+.btn-primary:hover {
+    background-color: #27ae60 !important;
+    border-color: #27ae60 !important;
+}
+
+/* Special button styles for the card actions */
+.btn-info {
+    background-color: var(--synapse-primary-btn) !important;
+    border-color: var(--synapse-primary-btn) !important;
+    color: var(--text-light) !important;
+}
+
+.btn-info:hover {
+    background-color: #2980b9 !important;
+    border-color: #2980b9 !important;
+}
+
+.btn-warning { /* Edit button */
+    background-color: #f39c12 !important;
+    border-color: #f39c12 !important;
+    color: var(--synapse-dark-blue) !important;
+}
+
+.btn-warning:hover {
+    background-color: #e67e22 !important;
+    border-color: #e67e22 !important;
+}
+
+.btn-danger { /* Delete button */
+    background-color: #e74c3c !important;
+    border-color: #e74c3c !important;
+    color: var(--text-light) !important;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b !important;
+    border-color: #c0392b !important;
+}
+
+
+.modal-content {
+    background-color: var(--synapse-dark-blue) !important;
+    color: var(--text-light) !important;
+    border: 2px solid var(--synapse-accent-green) !important;
+    border-radius: 0.75rem;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--synapse-border-green) !important;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--synapse-border-green) !important;
+}
+
+.modal-title {
+    color: var(--synapse-accent-green) !important;
+    font-weight: 600;
+}
+
+.btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+    opacity: 0.8;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+/* Styling for the code block within the modal */
+#modalSnippetCode {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95em;
+    line-height: 1.4;
+    max-height: 50vh;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+/* Prism.js toolbar customization (for the copy button) */
+.token.comment {
+    font-style: italic;
+}
+
+.token.punctuation {
+    color: #abb2bf;
+}
+
+.prism-toolbar {
+    position: absolute;
+    top: 0.5em;
+    right: 0.8em;
+    opacity: 0.8;
+    z-index: 10;
+}
+
+.prism-toolbar .toolbar-item {
+    font-size: 0.8em;
+}
+
+.prism-toolbar .toolbar-item a {
+    color: var(--text-light);
+    background-color: var(--synapse-primary-btn);
+    border-radius: 0.25rem;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.prism-toolbar .toolbar-item a:hover {
+    background-color: #2980b9;
+}
+
+/* Small adjustments to modal text */
+.modal-body h4, .modal-body h6 {
+    color: var(--synapse-accent-green) !important;
+}
+
+.modal-body p {
+    color: var(--text-light) !important;
+}
+
+.modal-body a {
+    color: var(--synapse-primary-btn) !important;
+}
+
+.modal-body .badge {
+    background-color: var(--synapse-primary-btn) !important;
+    color: var(--text-light) !important;
+    font-size: 0.8em;
+}
+
+/* Pagination Styling */
+.pagination .page-item .page-link {
+    background-color: var(--synapse-dark-blue) !important;
+    color: var(--text-light) !important;
+    border: 1px solid var(--synapse-accent-green) !important;
+}
+
+.pagination .page-item.active .page-link,
+.pagination .page-item.active .page-link:focus {
+    background-color: var(--synapse-accent-green) !important;
+    border-color: var(--synapse-accent-green) !important;
+    color: var(--synapse-dark-blue) !important;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: var(--synapse-light-blue) !important;
+    color: var(--synapse-accent-green) !important;
+    border-color: var(--synapse-accent-green) !important;
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: var(--synapse-dark-blue) !important;
+    color: var(--secondary-gray) !important;
+    border-color: var(--synapse-dark-blue) !important;
+}
+
+
+/* -------------------------------------------------------------- */
+/* smaller screens */
+@media (max-width: 767.98px) { /* Targets screens smaller than Bootstrap's 'md' breakpoint */
+    body {
+        font-size: 0.95rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    /* Adjusted padding and margins for the main content on smaller screens */
+    main.container {
+        padding: 20px !important;
+        margin-top: 20px !important;
+    }
+
+    .hero-section {
+        padding: 50px 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p.lead {
+        font-size: 1.2rem;
+    }
+
+    .hero-section .btn {
+        display: block;
+        width: 100%;
+        margin-right: 0 !important;
+        margin-bottom: 15px;
+    }
+
+    /* For the feature sections (Organize, Learn, Share) */
+    .row.mt-5 .col-md-4 {
+        margin-bottom: 30px;
+    }
+}
+
+
+@media (max-width: 575.98px) { /* Targets screens smaller than Bootstrap's 'sm' breakpoint */
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .hero-section p.lead {
+        font-size: 1rem;
+    }
+}
