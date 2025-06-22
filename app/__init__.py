@@ -24,7 +24,7 @@ def load_user(user_id):
 
 
 # create Flask app instance
-def create_app():
+def create_app(environ=None, start_response=None):      # for Gunicorn (deployment) expects 2 params
     app = Flask(__name__, instance_relative_config=True)
 
     # SECRET_KEY and DATABASE_URL
