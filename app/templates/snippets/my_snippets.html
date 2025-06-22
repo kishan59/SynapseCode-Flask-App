@@ -72,6 +72,7 @@
     {% endif %}
 
     <!-- pagination  -->
+    {% if snippets.items %}
     <nav aria-label="Page navigation" class="mt-4">
         <ul class="pagination justify-content-center">
             {% if snippets.has_prev %}
@@ -111,6 +112,7 @@
             {% endif %}
         </ul>
     </nav>
+    {% endif %}
 
     <!-- view snippet modal -->
     <div class="modal fade" id="snippetModal" tabindex="-1" aria-labelledby="snippetModalLabel" aria-hidden="true">
