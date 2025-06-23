@@ -64,7 +64,7 @@
                 </div>
             {% endfor %}
         </div>
-    {% else %}
+    {% elif not snippets.items and not request.args.get('q') and not request.args.get('language_filter') %}
         <div class="alert bg-synapse-dark text-light border border-synapse-accent-green text-center py-4" role="alert">
             <h4 class="alert-heading text-synapse-accent-green">No Snippets Yet!</h4>
             <p>It looks like you haven't added any code snippets. Start organizing your knowledge now!</p>
