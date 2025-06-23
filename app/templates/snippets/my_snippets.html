@@ -12,6 +12,7 @@
     </div>
 
     <!-- search bar -->
+    {% if snippets.items or request.args.get('q') or request.args.get('language_filter') %}
     <div class="row mb-4 justify-content-center">
         <div class="col-md-8 col-lg-7">
             <form method="GET" action="{{ url_for('snippets.my_snippets') }}" class="input-group mw-100">
@@ -24,6 +25,7 @@
             </form>
         </div>
     </div>
+    {% endif %}
 
     {% if snippets.items %}
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
