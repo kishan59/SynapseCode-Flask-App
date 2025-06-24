@@ -61,4 +61,25 @@ When building SynapseCode, I made several deliberate design choices:
     * **AJAX (Asynchronous JavaScript and XML)** requests were crucial for a smoother user experience. For actions like deleting a snippet or opening the detailed view modal, AJAX allows the UI to update immediately without a full page reload. This makes the application feel much faster and more interactive. For delete operations, it also allowed me to correctly use HTTP `POST` requests for security.
 * **Organic Search Strategy:** The search functionality was designed to be highly organic, utilizing a single search input that queries multiple relevant fields (`title`, `description`, `code_content`, `notes`, `tags`). The backend logic processes keywords with `AND` logic and `ILIKE` for case-insensitivity, allowing users to type natural language queries rather than rigid syntax. This decision aims to make finding snippets as intuitive and efficient as possible, which is central to the app's usability.
 
+### Acknowledgements
+
+I would like to express my gratitude to the following resources and tools that were instrumental in the development of SynapseCode:
+
+* **CS50x:** For providing the foundational knowledge in computer science, web development principles, database concepts, and guiding the overall project structure.
+* **Flask:** The Python web framework.
+* **Flask-SQLAlchemy:** ORM for database interactions.
+* **Flask-Bcrypt:** For secure password hashing.
+* **Flask-Login:** For user session management.
+* **Flask-WTF:** For form handling and CSRF protection.
+* **Bootstrap 5:** The responsive frontend framework.
+* **Prism.js:** For client-side syntax highlighting.
+* **Gunicorn:** The WSGI HTTP server for production deployment.
+* **python-dotenv:** For managing local environment variables.
+* **psycopg2-binary:** The PostgreSQL adapter for Python.
+* **Google Gemini API:** For helping with lots of aesthetics (css) of this app.
+* **Render.com:** For providing a seamless platform for deploying the application.
+* **GitHub:** For version control and collaborative development.
+* **Google Fonts:** For the Poppins and Fira Code typefaces used in the application's design.
+
+
 This `README.md` provides a comprehensive overview of SynapseCode's purpose, features, architecture, and the thought process behind its design choices, adhering to the CS50 project guidelines.
