@@ -1,6 +1,6 @@
 # SynapseCode: Your Personal Code Snippet Manager
 
-#### Video Demo:  `<URL HERE - PLEASE INSERT YOUR VIDEO DEMO URL>`
+#### Video Demo:  `https://youtu.be/wOFxRhf8Cds`
 
 #### Live Demo:  `https://synapsecode-flask-app.onrender.com`
 
